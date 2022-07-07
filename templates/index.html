@@ -27,9 +27,7 @@
                     <span>♺</span>
                     {% endif %}
                 </li>     
-                <form action="/events/delete" method="post">
-                    <button type="submit">Remove Event</button>
-                </form>       
+                <a href="http://127.0.0.1:5000/events/delete/{{loop.index}}">Remove</a>
                 {% endfor %}
                 
             </ul>

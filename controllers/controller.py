@@ -19,7 +19,8 @@ def add_event():
     add_event_to_list(new_event)
     return redirect('/events')
 
-@app.route('/events/<event>', methods=['POST'])
-def remove_event(event):
-    remove_event_from_list(event)
+@app.route('/events/delete/<int:event_num>', methods=['POST'])
+def remove_event(event_num):
+    event_to_delete = events[event_num - 1] 
+    remove_event_from_list(event_to_delete)
     return redirect('/events')

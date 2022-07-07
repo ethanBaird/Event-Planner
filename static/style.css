@@ -1,0 +1,60 @@
+header {
+    display: flex;
+    /* horizontally, space-between pushing items to oppostie sides */
+    justify-content: space-between;
+    /* vertical */
+    align-items: center;
+}
+
+body {
+    background-color: aqua;
+    font-family: 'IBM Plex Sans', sans-serif;
+
+}
+
+main {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#event-list {
+    background-color: bisque;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+#event-list li {
+    margin-bottom: 10px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: bisque;
+    padding: 5px;
+    border-radius: 5px;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+form > input {
+    font-family: 'IBM Plex Sans', sans-serif;
+    border-radius: 5px;
+    border-width: 1px;
+}
+
+form > select {
+    font-family: 'IBM Plex Sans', sans-serif;
+    border-radius: 5px;
+}
+
+form button {
+    margin: 1rem 0rem;
+    background-color: aqua;
+    border-radius: 5px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    border-width: 1px;
+}
+
+button:hover {
+    cursor: pointer;
+}

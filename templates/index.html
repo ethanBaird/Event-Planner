@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Screenings</h1>
+        <nav>
+            <a href="/events">Home</a>
+        </nav>
+    </header>
+    <main>
+        <div id="event-list">
+            <ul>
+                {% for event in events %}
+                <li>
+                    {{event.date}} {{ event.name }} {{ event.guests }} {{ event.location }} {{ event.description }}
+                    {% if event.recurring == 'True' %}
+                    <span>♺</span>
+                    {% endif %}
+                </li>     
+                <form action="/events/delete" method="post">
+                    <button type="submit">Remove Event</button>
+                </form>       
+                {% endfor %}
+                
+            </ul>
+        </div>
+        <div id="new-event">
+            <form action="/events" method="post">
+                <label for="date">Date:</label>
+                <input type="date" name="date" id="date">
+                <label for="name">Event Name:</label>
+                <input type="text" name="name" id="name">
+                <label for="guests">Number of Guests:</label>
+                <input type="number" name="guests" id="guests" min="0">
+                <label for="location">Location:</label>
+                <select name="location" id="location">
+                    <option value="" disabled selected>Select a location</option>
+                    <option value="The Cameo">The Cameo</option>
+                    <option value="Filmhouse">Filmhouse</option>
+                </select>
+                <label for="description">Description:</label>
+                <input type="text" name="description" id="description">
+                <label for="recurring">Is this event recurring?:</label>
+                <select name="recurring" id="recurring">
+                    <option value="" disabled selected>Please select an option</option>
+                    <option value="True">Yes</option>
+                    <option value="False">No</option>
+                </select>
+                <button type="submit">Submit Event</button>
+            </form>
+        </div>
+    </main>
+    
+</body>
+</html>
